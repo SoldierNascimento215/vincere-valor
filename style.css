@@ -1,0 +1,2043 @@
+/* =========================================================
+   VINCERE VALOR
+   STYLE.CSS
+========================================================= */
+
+
+/* =========================================================
+   01. VARIÁVEIS
+========================================================= */
+
+:root {
+    --brown: #5a3825;
+    --wine: #7a1717;
+    --olive: #3d4932;
+    --black: #0b0b0b;
+    --cream: #f2efe8;
+
+    --surface: #13110f;
+    --surface-soft: #191512;
+
+    --text: #f2efe8;
+    --text-soft: #c7beb5;
+    --text-muted: #8d857d;
+
+    --line: rgba(242, 239, 232, 0.12);
+
+    --container: 1160px;
+
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   02. RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+
+body {
+    background: var(--black);
+    color: var(--text);
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+button {
+    font: inherit;
+}
+
+
+::selection {
+    background: var(--wine);
+    color: var(--cream);
+}
+
+
+/* =========================================================
+   03. CONTAINER
+========================================================= */
+
+.container {
+    width: min(
+        calc(100% - 40px),
+        var(--container)
+    );
+
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   04. HEADER
+========================================================= */
+
+.site-header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(11, 11, 11, 0.78);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-bottom:
+        1px solid
+        rgba(242, 239, 232, 0.06);
+
+    transition:
+        background var(--transition),
+        border-color var(--transition);
+}
+
+
+.site-header.scrolled {
+    background: rgba(11, 11, 11, 0.96);
+
+    border-color:
+        rgba(242, 239, 232, 0.10);
+}
+
+
+.header-content {
+    min-height: 76px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+/* =========================================================
+   05. LOGO DO HEADER
+========================================================= */
+
+.brand {
+    width: 110px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.brand img {
+    width: 100%;
+
+    max-height: 48px;
+
+    object-fit: contain;
+
+    object-position: left center;
+}
+
+
+/* =========================================================
+   06. NAVEGAÇÃO
+========================================================= */
+
+.main-nav {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+.main-nav a {
+    position: relative;
+
+    color: #aaa29b;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    transition:
+        color var(--transition);
+}
+
+
+.main-nav a:hover {
+    color: var(--cream);
+}
+
+
+.main-nav a.active-link {
+    color: var(--cream);
+}
+
+
+.main-nav a.active-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--wine);
+}
+
+
+.header-contact {
+    padding-bottom: 4px;
+
+    border-bottom:
+        1px solid
+        var(--wine);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: var(--cream);
+}
+
+
+/* =========================================================
+   07. MENU MOBILE
+========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+.menu-toggle span {
+    display: block;
+
+    width: 22px;
+    height: 2px;
+
+    margin: 5px auto;
+
+    background: var(--cream);
+
+    transition:
+        transform var(--transition),
+        opacity var(--transition);
+}
+
+
+.menu-toggle.active span:nth-child(1) {
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
+
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.menu-toggle.active span:nth-child(3) {
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
+}
+
+
+/* =========================================================
+   08. ELEMENTOS GERAIS
+========================================================= */
+
+.section {
+    padding: 120px 0;
+}
+
+
+.section-tag {
+    display: inline-block;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+
+    color: #9b928a;
+}
+
+
+.dark-tag {
+    color: var(--brown);
+}
+
+
+.section-number {
+    margin-right: 10px;
+
+    color: var(--wine);
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+.section-meta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.section-heading {
+    margin-bottom: 60px;
+}
+
+
+.section-heading-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.1fr
+        0.9fr;
+
+    gap: 80px;
+
+    margin-top: 25px;
+
+    align-items: end;
+}
+
+
+.section-heading h2 {
+    max-width: 700px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            42px,
+            5vw,
+            62px
+        );
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+}
+
+
+.section-heading h2 span {
+    display: block;
+
+    font-style: italic;
+
+    color: var(--cream);
+}
+
+
+.section-heading p {
+    max-width: 500px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   09. BOTÕES
+========================================================= */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    min-height: 50px;
+
+    padding: 0 22px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition);
+}
+
+
+.button span {
+    font-size: 18px;
+}
+
+
+.button-primary {
+    background: var(--wine);
+
+    color: var(--cream);
+}
+
+
+.button-primary:hover {
+    background: #8a1c1c;
+
+    transform: translateY(-2px);
+}
+
+
+.button-secondary {
+    color: var(--text-soft);
+}
+
+
+.button-secondary:hover {
+    color: var(--cream);
+}
+
+
+.button-dark {
+    background: var(--black);
+
+    color: var(--cream);
+}
+
+
+.button-dark:hover {
+    transform: translateY(-2px);
+
+    background: #171717;
+}
+
+
+/* =========================================================
+   10. HERO
+========================================================= */
+
+.hero {
+    min-height: 820px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+        150px 0
+        100px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(90, 56, 37, 0.22),
+            transparent 30%
+        ),
+        linear-gradient(
+            120deg,
+            #0b0b0b 58%,
+            #15110f
+        );
+}
+
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -220px;
+    bottom: -260px;
+
+    border:
+        1px solid
+        rgba(122, 23, 23, 0.20);
+
+    border-radius: 50%;
+}
+
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.15fr
+        0.85fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   11. TEXTO DO HERO
+========================================================= */
+
+.hero-copy h1 {
+    max-width: 760px;
+
+    margin-top: 20px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            50px,
+            6vw,
+            78px
+        );
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    letter-spacing: -3px;
+}
+
+
+.hero-copy h1 span {
+    display: block;
+
+    margin-top: 6px;
+
+    font-style: italic;
+
+    color: var(--cream);
+}
+
+
+.hero-description {
+    max-width: 610px;
+
+    margin-top: 28px;
+
+    color: var(--text-soft);
+
+    font-size: 15px;
+
+    line-height: 1.85;
+}
+
+
+.hero-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin-top: 34px;
+}
+
+
+.hero-note {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 48px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+.hero-note > span {
+    width: 30px;
+    height: 1px;
+
+    background: var(--brown);
+}
+
+
+/* =========================================================
+   12. ARTE DO HERO
+========================================================= */
+
+.hero-visual {
+    min-height: 520px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+
+.hero-art {
+    width: 350px;
+    height: 440px;
+
+    padding: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border:
+        1px solid
+        rgba(242, 239, 232, 0.15);
+
+    background:
+        linear-gradient(
+            145deg,
+            #261b16,
+            #11100f
+        );
+
+    transform: rotate(2.5deg);
+
+    box-shadow:
+        25px 35px 80px
+        rgba(0, 0, 0, 0.45);
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.hero-visual:hover .hero-art {
+    transform:
+        rotate(0deg)
+        translateY(-4px);
+}
+
+
+.hero-art-top,
+.hero-art-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    font-size: 8px;
+
+    letter-spacing: 1.7px;
+
+    color: #6e665f;
+}
+
+
+.hero-art-title {
+    display: flex;
+
+    flex-direction: column;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 46px;
+
+    line-height: 0.95;
+
+    letter-spacing: -2px;
+}
+
+
+.hero-art-title strong {
+    font-weight: 500;
+
+    font-style: italic;
+
+    color: #ded5cc;
+
+    position: relative;
+}
+
+
+.hero-art-title strong::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 2px;
+
+    margin-top: 12px;
+
+    background: var(--wine);
+}
+
+
+.hero-sticker {
+    position: absolute;
+
+    right: -5px;
+    bottom: 50px;
+
+    padding: 16px 18px;
+
+    background: var(--olive);
+
+    color: var(--cream);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    transform: rotate(-4deg);
+
+    box-shadow:
+        12px 18px 35px
+        rgba(0, 0, 0, 0.30);
+}
+
+
+/* =========================================================
+   13. MANIFESTO
+========================================================= */
+
+.manifesto {
+    padding:
+        110px 0
+        120px;
+
+    background: var(--cream);
+
+    color: var(--black);
+}
+
+
+.manifesto-content h2 {
+    max-width: 900px;
+
+    margin-top: 24px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            43px,
+            5.5vw,
+            68px
+        );
+
+    line-height: 1.02;
+
+    letter-spacing: -2px;
+
+    font-weight: 500;
+}
+
+
+.manifesto-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 30px;
+}
+
+
+.manifesto-footer p {
+    max-width: 520px;
+
+    color: #5f5852;
+
+    font-size: 14px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   14. SERVIÇOS
+========================================================= */
+
+.services {
+    background: #11100f;
+}
+
+
+.service-line {
+    min-height: 165px;
+
+    display: grid;
+
+    grid-template-columns:
+        70px
+        1fr
+        1.1fr
+        45px;
+
+    gap: 24px;
+
+    align-items: center;
+
+    border-top:
+        1px solid
+        var(--line);
+
+    transition:
+        padding var(--transition),
+        background var(--transition);
+}
+
+
+.service-line:last-child {
+    border-bottom:
+        1px solid
+        var(--line);
+}
+
+
+.service-line:hover {
+    padding-left: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(90, 56, 37, 0.12),
+            transparent
+        );
+}
+
+
+.service-index {
+    color: #706961;
+
+    font-size: 10px;
+}
+
+
+.service-title h3 {
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 500;
+}
+
+
+.service-title span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--wine);
+
+    font-size: 9px;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+
+.service-description {
+    display: grid;
+
+    gap: 8px;
+}
+
+
+.service-description p {
+    max-width: 450px;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.service-arrow {
+    font-size: 25px;
+
+    color: var(--text-soft);
+
+    text-align: right;
+
+    transition:
+        transform var(--transition),
+        color var(--transition);
+}
+
+
+.service-line:hover .service-arrow {
+    color: var(--wine);
+
+    transform:
+        translate(3px, -3px);
+}
+
+
+/* =========================================================
+   15. PORTFÓLIO
+========================================================= */
+
+.portfolio {
+    background: var(--cream);
+
+    color: var(--black);
+}
+
+
+.portfolio .section-heading h2 span {
+    color: var(--black);
+}
+
+
+.portfolio .section-heading p {
+    color: #615a54;
+}
+
+
+.portfolio-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.35fr
+        0.65fr;
+
+    gap: 18px;
+}
+
+
+.project {
+    margin: 0;
+}
+
+
+.project-image {
+    position: relative;
+
+    height: 390px;
+
+    overflow: hidden;
+
+    background: #d8d2ca;
+}
+
+
+.project-large .project-image {
+    height: 540px;
+}
+
+
+.project-wide {
+    grid-column: 1 / -1;
+}
+
+
+.project-wide .project-image {
+    height: 360px;
+}
+
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: saturate(0.88);
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+
+.project:hover .project-image img {
+    transform: scale(1.035);
+
+    filter: saturate(1);
+}
+
+
+.project figcaption {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    align-items: flex-end;
+
+    margin-top: 14px;
+}
+
+
+.project figcaption span {
+    color: var(--brown);
+
+    font-size: 9px;
+
+    letter-spacing: 1.8px;
+}
+
+
+.project figcaption strong {
+    max-width: 420px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 21px;
+
+    font-weight: 500;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   16. SOBRE A EMPRESA
+========================================================= */
+
+.about {
+    background: #151210;
+}
+
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns:
+        0.9fr
+        1.1fr;
+
+    align-items: center;
+
+    gap: 100px;
+}
+
+
+.about-visual {
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.about-card {
+    width: 350px;
+    height: 440px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(90, 56, 37, 0.60);
+
+    background:
+        linear-gradient(
+            145deg,
+            #241a15,
+            #100f0e
+        );
+
+    transform: rotate(-3deg);
+
+    transition:
+        transform 0.5s ease;
+
+    overflow: hidden;
+}
+
+
+.about-visual:hover .about-card {
+    transform:
+        rotate(0deg)
+        translateY(-5px);
+}
+
+
+/* =========================================================
+   17. LOGO NA ÁREA "A EMPRESA"
+========================================================= */
+
+.about-card-logo {
+    padding: 50px;
+}
+
+
+.about-logo {
+    width: 170px;
+
+    max-width: 80%;
+
+    height: auto;
+
+    max-height: 220px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 12px 25px
+            rgba(0, 0, 0, 0.25)
+        );
+}
+
+
+.about-content h2 {
+    max-width: 700px;
+
+    margin-top: 22px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            43px,
+            5vw,
+            62px
+        );
+
+    line-height: 1.02;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+}
+
+
+.about-highlight {
+    margin-top: 26px;
+
+    color: var(--cream) !important;
+
+    font-size: 17px !important;
+}
+
+
+.about-content p {
+    max-width: 600px;
+
+    margin-top: 15px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    line-height: 1.85;
+}
+
+
+.text-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+    padding-bottom: 4px;
+
+    border-bottom:
+        1px solid
+        var(--wine);
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   18. PROCESSO
+========================================================= */
+
+.process {
+    background: var(--black);
+}
+
+
+.process-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    margin-top: 55px;
+
+    border-top:
+        1px solid
+        var(--line);
+}
+
+
+.process-step {
+    min-height: 235px;
+
+    padding:
+        27px 25px
+        22px;
+
+    border-right:
+        1px solid
+        var(--line);
+}
+
+
+.process-step:last-child {
+    border-right: 0;
+}
+
+
+.process-step > span {
+    color: var(--wine);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+.process-step h3 {
+    margin-top: 45px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+}
+
+
+.process-step p {
+    max-width: 210px;
+
+    margin-top: 10px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   19. CONTATO
+========================================================= */
+
+.contact {
+    padding: 120px 0;
+
+    background: var(--brown);
+
+    text-align: center;
+}
+
+
+.contact-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.contact-content h2 {
+    max-width: 900px;
+
+    margin-top: 20px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            46px,
+            6vw,
+            72px
+        );
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    letter-spacing: -3px;
+}
+
+
+.contact-content > p {
+    margin-top: 20px;
+
+    color: #dfd1c5;
+
+    font-size: 14px;
+}
+
+
+.contact-content .button {
+    margin-top: 30px;
+}
+
+
+.contact-content small {
+    margin-top: 14px;
+
+    color: #c7ae9c;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   20. FOOTER
+========================================================= */
+
+.site-footer {
+    padding-top: 65px;
+
+    background: #080808;
+}
+
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1.2fr;
+
+    gap: 50px;
+
+    padding-bottom: 60px;
+}
+
+
+/* LOGO MENOR DO RODAPÉ */
+
+.footer-brand img {
+    width: 105px;
+
+    max-height: 55px;
+
+    object-fit: contain;
+
+    object-position: left center;
+}
+
+
+.footer-brand p {
+    margin-top: 16px;
+
+    color: #6b645d;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.footer-title {
+    margin-bottom: 5px;
+
+    color: var(--cream) !important;
+
+    font-size: 10px !important;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+
+.footer-column a,
+.footer-column span {
+    color: #746d66;
+
+    font-size: 11px;
+
+    transition:
+        color var(--transition);
+}
+
+
+.footer-column a:hover {
+    color: var(--cream);
+}
+
+
+.footer-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-top:
+        1px solid
+        var(--line);
+
+    color: #4f4a45;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   21. WHATSAPP FLUTUANTE
+========================================================= */
+
+.whatsapp-floating {
+    position: fixed;
+
+    right: 22px;
+    bottom: 22px;
+
+    z-index: 900;
+
+    width: 54px;
+    height: 54px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--olive);
+
+    color: var(--cream);
+
+    font-size: 20px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+
+.whatsapp-floating:hover {
+    transform:
+        translateY(-4px)
+        rotate(8deg);
+
+    background: #46543a;
+
+    box-shadow:
+        0 20px 45px
+        rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   22. ANIMAÇÕES CONTROLADAS PELO JAVASCRIPT
+========================================================= */
+
+.js-reveal {
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+
+.js-reveal.js-reveal-visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   23. RESPONSIVIDADE — TABLETS
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .main-nav {
+        gap: 18px;
+    }
+
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    .hero-visual {
+        max-width: 650px;
+
+        width: 100%;
+
+        margin-inline: auto;
+    }
+
+
+    .section-heading-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    .service-line {
+        grid-template-columns:
+            55px
+            1fr
+            1fr
+            35px;
+    }
+
+
+    .about-grid {
+        gap: 60px;
+    }
+
+}
+
+
+/* =========================================================
+   24. RESPONSIVIDADE — MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .container {
+        width:
+            min(
+                calc(100% - 30px),
+                var(--container)
+            );
+    }
+
+
+    /* HEADER */
+
+    .header-content {
+        min-height: 68px;
+    }
+
+
+    .brand {
+        width: 90px;
+    }
+
+
+    .brand img {
+        max-height: 42px;
+    }
+
+
+    .header-contact {
+        display: none;
+    }
+
+
+    .menu-toggle {
+        display: block;
+
+        margin-left: auto;
+    }
+
+
+    .main-nav {
+        position: absolute;
+
+        top: 68px;
+
+        left: 15px;
+        right: 15px;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 10px;
+
+        background: #11100f;
+
+        border:
+            1px solid
+            var(--line);
+
+        box-shadow:
+            0 25px 60px
+            rgba(0, 0, 0, 0.35);
+    }
+
+
+    .main-nav.active {
+        display: flex;
+    }
+
+
+    .main-nav a {
+        padding: 13px 10px;
+
+        border-bottom:
+            1px solid
+            rgba(242, 239, 232, 0.06);
+    }
+
+
+    .main-nav a:last-child {
+        border-bottom: 0;
+    }
+
+
+    .main-nav a.active-link::after {
+        display: none;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: auto;
+
+        padding:
+            120px 0
+            80px;
+    }
+
+
+    .hero-copy h1 {
+        font-size: 47px;
+    }
+
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+
+    .hero-art {
+        width: 320px;
+        height: 410px;
+    }
+
+
+    /* SEÇÕES */
+
+    .section {
+        padding: 90px 0;
+    }
+
+
+    /* SERVIÇOS */
+
+    .service-line {
+        grid-template-columns:
+            45px
+            1fr
+            35px;
+
+        gap: 14px;
+
+        padding: 28px 0;
+    }
+
+
+    .service-description {
+        grid-column: 2 / -1;
+
+        grid-row: 2;
+    }
+
+
+    /* PORTFÓLIO */
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-wide {
+        grid-column: auto;
+    }
+
+
+    .project-large .project-image,
+    .project-wide .project-image,
+    .project-image {
+        height: 390px;
+    }
+
+
+    /* SOBRE */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    .about-card {
+        width: 320px;
+        height: 370px;
+    }
+
+
+    .about-logo {
+        width: 145px;
+    }
+
+
+    /* PROCESSO */
+
+    .process-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .process-step {
+        border-bottom:
+            1px solid
+            var(--line);
+    }
+
+
+    .process-step:nth-child(2) {
+        border-right: 0;
+    }
+
+
+    /* FOOTER */
+
+    .footer-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .footer-column:last-child {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* =========================================================
+   25. RESPONSIVIDADE — CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 520px) {
+
+    /* LOGO */
+
+    .brand {
+        width: 82px;
+    }
+
+
+    /* HERO */
+
+    .hero-copy h1 {
+        font-size: 39px;
+
+        letter-spacing: -1.8px;
+    }
+
+
+    .hero-actions {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+
+    .hero-art {
+        width: 290px;
+        height: 380px;
+    }
+
+
+    .hero-art-title {
+        font-size: 38px;
+    }
+
+
+    .hero-sticker {
+        right: -2px;
+
+        bottom: 20px;
+    }
+
+
+    /* TÍTULOS */
+
+    .manifesto-content h2,
+    .section-heading h2,
+    .about-content h2 {
+        font-size: 38px;
+    }
+
+
+    .manifesto-footer {
+        justify-content: flex-start;
+    }
+
+
+    /* PORTFÓLIO */
+
+    .project-large .project-image,
+    .project-wide .project-image,
+    .project-image {
+        height: 330px;
+    }
+
+
+    .project figcaption {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .project figcaption strong {
+        text-align: left;
+    }
+
+
+    /* SOBRE */
+
+    .about-card {
+        width: 285px;
+        height: 340px;
+
+        padding: 40px;
+    }
+
+
+    .about-logo {
+        width: 130px;
+    }
+
+
+    /* PROCESSO */
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .process-step {
+        border-right: 0 !important;
+    }
+
+
+    /* CONTATO */
+
+    .contact-content h2 {
+        font-size: 42px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .footer-column:last-child {
+        grid-column: auto;
+    }
+
+
+    .footer-brand img {
+        width: 90px;
+    }
+
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    /* WHATSAPP */
+
+    .whatsapp-floating {
+        width: 50px;
+        height: 50px;
+
+        right: 16px;
+        bottom: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   26. ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        transition-duration:
+            0.01ms !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+    }
+
+
+    .js-reveal {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+}
